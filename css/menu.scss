@@ -1,0 +1,66 @@
+@use 'global' as *;
+@use 'top-menu';
+@use 'primary-menu';
+
+/* Hide the logo in the primary menu */
+@media (min-width: $tabletwidth){
+	#masthead .site-logo{
+		display: none;
+	}
+}
+
+/* Underline red */
+/* text color of active menu*/
+li[class*="current-menu-"] > a
+{
+    color: #bd2919;;
+}
+
+li:hover > a,
+li[class*="current-menu-"] > a {
+    text-decoration: underline;
+    text-decoration-color: currentcolor;
+    -webkit-text-decoration-color: #bd2919;
+    text-decoration-color: #bd2919;
+}
+
+/* Color the search image*/
+.icon-search{
+    svg{
+        color: black;
+    }
+
+    &:hover svg{
+        color: #bd2919;
+    }
+}
+
+/* background of submenus*/
+ul .menu-item-has-children ul.sub-menu {
+    background-color: white;
+}
+	
+/* hover color of submenu*/
+.menu-item-has-children ul.sub-menu .menu-item:hover a{
+    background-color: lightgrey;
+}
+		
+/*Number behind menu item*/
+.numberCircle {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    background: #bd2919;
+    color: white;
+    text-align: center;
+    font: 10px Arial, sans-serif;
+}
+
+/* background of submenus*/
+@media (min-width: 768px){
+	.search-form.navigation-search.nav-search-active{
+		right: 100px;
+		border: 2px solid black;
+	}
+}

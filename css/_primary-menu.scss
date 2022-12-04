@@ -1,0 +1,85 @@
+@use 'global' as *;
+
+/* Fix the menu on top of the page */
+#masthead{
+	position: sticky;
+	z-index: 9999;
+    top: 100px;
+
+    #site-navigation{
+        a{
+            font-weight:600;
+        }
+    
+        .inside-navigation{
+            justify-content: normal !important;
+            @media (min-width: $tabletwidth){
+                max-height: 80px;
+            }
+        }
+        .menu-bar-items{
+            position: absolute;
+            right: -50px;
+        }
+    }    
+    
+    .grid-container{
+        padding-top: 0px;
+    }
+
+    .main-navigation{
+        .main-nav ul li.sfHover > a, 
+        .menu-bar-item:hover > a, 
+        .menu-bar-item.sfHover > a{
+            background-color: transparent;
+        }
+
+        #menu-primary-menu{
+            li > a{
+                line-height: 40px;
+            }
+        }
+    }
+}
+
+/*
+* === Mobile menu settings ===
+*/
+@media (max-width: 768px){
+    #masthead{
+        top: 0px;
+
+        .inside-header.grid-container{
+            padding-top: 20px;
+        }
+
+        .site-logo{
+            max-width: 33vw;
+        }
+    }
+
+	/* White background for menu, White background for menu  icon */
+	#masthead.has-inline-mobile-toggle .inside-header.grid-container, 
+	#mobile-menu-control-wrapper .menu-toggle, #primary-menu{
+		background-color: white;
+	}
+
+	/* Color of the menu icon, color of the expanded submenu text */
+	.mobile-menu-control-wrapper .menu-toggle .gp-icon, 
+	#primary-menu #menu-primary-menu .sfHover a,
+	.home .icon-search svg{
+		color: #bd2919;
+	}
+
+	/* Color of mobile menu text */
+	.has-inline-mobile-toggle #site-navigation.toggled .menu-item a{
+		color: black;
+	}
+
+	/* Background of hovered submenu items */
+
+    #menu-primary-menu .menu-item:not(.sfHover):hover a, 
+    #menu-primary-menu .menu-item .sub-menu.toggled-on .menu-item:hover a{
+        background-color:lightgrey;
+    }
+}

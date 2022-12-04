@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded",function() {
 		}
 		
 		//Change to sticky menu
-		if(scrollTop == 0 && document.documentElement.scrollTop > changeY){
+		/* if(scrollTop == 0 && document.documentElement.scrollTop > changeY){
 			scrollTop = document.documentElement.scrollTop;
 			document.querySelector('body').classList.add("sticky");
 			document.getElementById('page').style['padding-top']= changeY+"px";
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded",function() {
 			scrollTop = 0;
 			document.querySelector('body').classList.remove("sticky");
 			document.getElementById('page').style['padding-top']= '0px';
-		}		
+		} */		
 	};
 
 	let el=document.querySelector("#welcome-message-button");
