@@ -4,6 +4,7 @@
 
 ### Added
 - namespacing
+- prioritize frontpage galleries
 
 ### Changed
 
