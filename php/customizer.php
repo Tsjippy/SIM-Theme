@@ -1,4 +1,26 @@
 <?php
+namespace SIMTHEME;
+
+if (class_exists('WP_Customize_Control')) {
+    class WP_Customize_Label_Control extends \WP_Customize_Control {
+    /**
+         * Render the control's content.
+         *
+         * @since 3.4.0
+         */
+        public function render_content() {
+            printf(
+                '<label class="customize-control-select"><span class="customize-control-title">%s</span></label>',
+                $this->label
+            );
+
+            $descriptionId   = '_customize-description-' . $this->id;
+            if ( ! empty( $this->description ) ) : ?>
+                <span id="<?php echo esc_attr( $descriptionId ); ?>" class="description customize-control-description"><?php echo $this->description; ?></span>
+            <?php endif;
+        }
+    }
+}
 
 // Add home page customizer options
 if ( ! function_exists( 'simCustomizeRegister' ) ) {
@@ -23,7 +45,7 @@ if ( ! function_exists( 'simCustomizeRegister' ) ) {
 
         frontpageNewsGallery($wpCustomize);
 
-        if(function_exists('SIM\getModuleOption') && SIM\getModuleOption('pagegallery', 'enable')){
+        if(function_exists('SIM\getModuleOption') && \SIM\getModuleOption('pagegallery', 'enable')){
             frontpagePageGallery($wpCustomize);
         }
     }
@@ -47,7 +69,7 @@ function frontpageHeader($wpCustomize){
     );
 
     $wpCustomize->add_control(
-        new WP_Customize_Image_Control (
+        new \WP_Customize_Image_Control (
             $wpCustomize,
             'header_image',
             array(
@@ -127,10 +149,10 @@ function frontpageHeader($wpCustomize){
     );
 
     $wpCustomize->add_setting(
-        new WP_Customize_Background_Image_Setting( $wpCustomize, 'background_image_thumb' ) );
+        new \WP_Customize_Background_Image_Setting( $wpCustomize, 'background_image_thumb' ) );
 
     $wpCustomize->add_control(
-        new WP_Customize_Background_Image_Control( $wpCustomize, 'background_image_thumb'  ),
+        new \WP_Customize_Background_Image_Control( $wpCustomize, 'background_image_thumb'  ),
         [
             'label'             => __( 'Second button text', 'sim' ),
             'section'           => 'sim_header',
@@ -451,27 +473,6 @@ function frontpagePageGallery($wpCustomize){
                     ]
                 );
             }
-        }
-    }
-}
-
-if (class_exists('WP_Customize_Control')) {
-    class WP_Customize_Label_Control extends WP_Customize_Control {
-    /**
-         * Render the control's content.
-         *
-         * @since 3.4.0
-         */
-        public function render_content() {
-            printf(
-                '<label class="customize-control-select"><span class="customize-control-title">%s</span></label>',
-                $this->label
-            );
-
-            $descriptionId   = '_customize-description-' . $this->id;
-            if ( ! empty( $this->description ) ) : ?>
-                <span id="<?php echo esc_attr( $descriptionId ); ?>" class="description customize-control-description"><?php echo $this->description; ?></span>
-            <?php endif;
         }
     }
 }

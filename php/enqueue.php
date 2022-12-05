@@ -1,4 +1,5 @@
 <?php
+namespace SIMTHEME;
 
 add_action( 'wp_enqueue_scripts', function(){
 	$baseUrl	= get_bloginfo('stylesheet_directory');

@@ -1,0 +1,19 @@
+{
+    "name": "tsjippy/sim-theme",
+    "description": "A child theme for generate press including all SIM layouts",
+    "type": "project",
+    "require": {
+        "michelf/php-markdown": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tsjippy\\SimTheme\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tsjippy",
+            "email": "44447654+Tsjippy@users.noreply.github.com"
+        }
+    ]
+}

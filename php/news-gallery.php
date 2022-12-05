@@ -1,4 +1,6 @@
 <?php
+namespace SIMTHEME;
+
 /**
  * Shows the news Gallery
  */
@@ -78,7 +80,7 @@ function showNewsGallery(){
         );
 
         //Hide confidential items
-        $confidentialGroups	= (array)SIM\getModuleOption('contentfilter', 'confidential-roles');
+        $confidentialGroups	= (array)\SIM\getModuleOption('contentfilter', 'confidential-roles');
         
         if(array_intersect($confidentialGroups, $user->roles)){
             $args['tax_query'][] =

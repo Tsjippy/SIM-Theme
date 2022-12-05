@@ -1,4 +1,5 @@
 <?php
+namespace SIMTHEME;
 use SIM;
 
 //Remove the featured image from the page and post content
