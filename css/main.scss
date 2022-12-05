@@ -1,0 +1,89 @@
+@use 'global' as *;
+@use 'menu';
+@use 'pagetitle';
+
+/* moretag layout */
+.moretag{
+	font-size: 15px;
+	border-radius: 30px;
+	color: white;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 10px 20px;
+	display: block;
+	max-width: 133px;
+	margin: 20px auto 0 auto;
+	white-space: nowrap;
+	background-color: $primary_color;
+	
+	/* on hover of the more tag*/
+	&:hover{
+		background-color:$secundary_color;
+		color:white;
+	}
+}
+
+/* paragraph text color*/
+p{
+	color: #676666;
+}
+
+/*Buttons */
+%buttons{
+	background-color: $primary_color;
+	border-radius: 3px;
+	text-align: center;
+	margin-right: 10px;
+}
+
+body div .button, 
+body div .button:not(.small):focus{
+	@extend %buttons;
+	padding: 5px 10px;
+	
+	&:hover, &.active{
+		background-color: $secundary_color;
+	}
+	
+	&.tablink{
+		margin-top: 15px;
+		background-color: $secundary_color;
+		
+		&:hover,&.active{
+			background-color: $primary_color;
+			color: white;
+			border-color: unset;
+		}
+	}
+}
+
+.wp-core-ui div .button{
+	@extend %buttons;
+	color: white;
+	border-color: unset;
+	
+	&:hover, &:active{
+		background-color: $secundary_color;
+		color: white;
+		border-color: unset;
+	}
+}
+
+#comments{
+	#submit{
+		@extend %buttons;
+	}
+}
+
+.button.small{
+	padding: 0px 10px;
+}
+a.button.small{
+	padding-top: 5px;
+}
+div h4{
+	font-weight: bold;
+	color: $primary_color;
+	margin: 15px 5px 5px;
+	font-size: inherit;
+}

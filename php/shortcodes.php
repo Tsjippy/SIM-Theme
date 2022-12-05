@@ -16,8 +16,8 @@ function displayName() {
 //Shortcode to return the amount of loggins in words
 add_shortcode("login_count", __NAMESPACE__.'\loginCount');
 function loginCount(){
-	$UserID 			= get_current_user_id();
-	$currentLogginCount = get_user_meta( $UserID, 'login_count', true );
+	$UserId			= get_current_user_id();
+	$currentLogginCount = get_user_meta( $UserId, 'login_count', true );
 	//Get the word from the array
 	if (is_numeric($currentLogginCount)){
 		return SIM\numberToWords($currentLogginCount);
@@ -30,7 +30,7 @@ function loginCount(){
 /**
  * Wrapper function for the home page for logged in users
  * Modules add their contetn via the  sim_loggedin_homepage filter
- */ 
+ */
 add_shortcode('logged_home_page', function(){
 	return apply_filters('sim_loggedin_homepage', '');
 });
@@ -42,7 +42,7 @@ function welcomeMessage(){
 		$userId = get_current_user_id();
 		//Check welcome message needs to be shown
 		if (empty(get_user_meta( $userId, 'welcomemessage', true ))){
-			$welcomeMessage = SIM\getModuleOption(MODULE_SLUG, 'welcome_message'); 
+			$welcomeMessage = SIM\getModuleOption(MODULE_SLUG, 'welcome_message');
 			if(!empty($welcomeMessage)){
 				//Html
 				$html = '<div id="welcome-message">';
