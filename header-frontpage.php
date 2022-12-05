@@ -1,4 +1,6 @@
 <?php
+namespace SIMTHEME;
+
 /**
  * The template for displaying the frontpage header.
  */

@@ -1,4 +1,5 @@
 <?php
+namespace SIMTHEME;
 
 define('THEME', 'sim-theme');
 

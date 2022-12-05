@@ -2,6 +2,10 @@
 @use 'top-menu';
 @use 'primary-menu';
 
+.main-navigation .menu-bar-item>a.button{
+    color: white;
+}
+
 /* Hide the logo in the primary menu */
 @media (min-width: $tabletwidth){
 	#masthead .site-logo{
@@ -63,4 +67,8 @@ ul .menu-item-has-children ul.sub-menu {
 		right: 100px;
 		border: 2px solid black;
 	}
+}
+
+.has-inline-mobile-toggle .inside-header{
+    padding:0px;
 }

@@ -1,4 +1,7 @@
 <?php
+namespace SIMTHEME;
+use SIM;
+
 /**
  * The template for displaying the footer.
  *
