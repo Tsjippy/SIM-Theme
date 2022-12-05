@@ -18,54 +18,70 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php
 
-showNewsGallery();
+$priorities	= get_theme_mod('priority', []);
+if(!isset($priorities['news'])){
+	$priorities['news']	= 10;
+}
+if(!isset($priorities['page'])){
+	$priorities['page']	= 20;
+}
 
-if(function_exists('SIM\getModuleOption') && SIM\getModuleOption('pagegallery', 'enable')){
-	$postTypes			= get_theme_mod('page_posttypes', []);
-	$postTypes			= array_keys(array_filter(
-		$postTypes,
-		function($value){
-			return $value === true;
-		},
-	));
-	$excludedCategories	= get_theme_mod('page_categories', []);
+// Sort according to the value
+asort($priorities);
 
-	$includedCategories	= [];
+foreach($priorities as $what=>$priority){
 
-	foreach ( $postTypes as $type ) {
-		$includedCategories[$type]	= [];
-		
-		$taxonomies 	= get_object_taxonomies($type);
-		foreach ( $taxonomies as $taxIndex=>$taxonomy ) {
-			// create a list of categories
-			$categories	= get_categories( array(
-				'taxonomy'		=> $taxonomy
-			) );
+	if($what == 'news' && !get_theme_mod('hide_news_gallery', false)){
+		showNewsGallery();
+	}
 
-			if(empty($categories)){
-				continue;
-			}
+	if($what == 'page' && !get_theme_mod('hide_page_gallery', false) && function_exists('SIM\getModuleOption') && SIM\getModuleOption('pagegallery', 'enable')){
+		$postTypes			= get_theme_mod('page_posttypes', []);
+		$postTypes			= array_keys(array_filter(
+			$postTypes,
+			function($value){
+				return $value === true;
+			},
+		));
+		$excludedCategories	= get_theme_mod('page_categories', []);
 
-			$includedCategories[$type][$taxonomy]	= [];
+		$includedCategories	= [];
 
-			foreach($categories as $category){
-				if(
-					!in_array($type, array_keys($excludedCategories))	||
-					!in_array($taxonomy, array_keys($excludedCategories[$type]))	||
-					!in_array($category->term_id, array_keys($excludedCategories[$type][$taxonomy]))	||
-					!$excludedCategories[$type][$taxonomy][$category->term_id]
-				){
-					$includedCategories[$type][$taxonomy][]	= $category->term_id;
+		foreach ( $postTypes as $type ) {
+			$includedCategories[$type]	= [];
+			
+			$taxonomies 	= get_object_taxonomies($type);
+			foreach ( $taxonomies as $taxIndex=>$taxonomy ) {
+				// create a list of categories
+				$categories	= get_categories( array(
+					'taxonomy'		=> $taxonomy
+				) );
+
+				if(empty($categories)){
+					continue;
+				}
+
+				$includedCategories[$type][$taxonomy]	= [];
+
+				foreach($categories as $category){
+					if(
+						!in_array($type, array_keys($excludedCategories))	||
+						!in_array($taxonomy, array_keys($excludedCategories[$type]))	||
+						!in_array($category->term_id, array_keys($excludedCategories[$type][$taxonomy]))	||
+						!$excludedCategories[$type][$taxonomy][$category->term_id]
+					){
+						$includedCategories[$type][$taxonomy][]	= $category->term_id;
+					}
 				}
 			}
 		}
+
+		$title				= get_theme_mod('page-gallery-title', 'See what we do');
+		$amount				= get_theme_mod('page-gallery-count', 3);
+		$speed		= get_theme_mod('speed', 60);
+
+		echo SIM\PAGEGALLERY\pageGallery($title, $postTypes, $amount, $includedCategories, $speed);
 	}
-
-	$title				= get_theme_mod('page-gallery-title', 'See what we do');
-	$amount				= get_theme_mod('page-gallery-count', 3);
-	$speed		= get_theme_mod('speed', 60);
-
-	echo SIM\PAGEGALLERY\pageGallery($title, $postTypes, $amount, $includedCategories, $speed);
 }
 
 /**

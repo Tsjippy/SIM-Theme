@@ -24,7 +24,7 @@ if (class_exists('WP_Customize_Control')) {
 
 // Add home page customizer options
 if ( ! function_exists( 'simCustomizeRegister' ) ) {
-	add_action( 'customize_register', 'simCustomizeRegister', 20 );
+	add_action( 'customize_register', __NAMESPACE__.'\simCustomizeRegister', 20 );
 
 	/**
 	 * Add our base options to the Customizer.
@@ -147,20 +147,6 @@ function frontpageHeader($wpCustomize){
 
         ]
     );
-
-    $wpCustomize->add_setting(
-        new \WP_Customize_Background_Image_Setting( $wpCustomize, 'background_image_thumb' ) );
-
-    $wpCustomize->add_control(
-        new \WP_Customize_Background_Image_Control( $wpCustomize, 'background_image_thumb'  ),
-        [
-            'label'             => __( 'Second button text', 'sim' ),
-            'section'           => 'sim_header',
-            'settings'          => 'background_image_thumb',
-            'priority'          => 16
-        ]
-    );
-
 }
 
 /**
@@ -181,8 +167,45 @@ function frontpageNewsGallery($wpCustomize){
             'title'         => __( 'News Gallery', 'sim' ),
             'priority'      => 10,
             'panel'         => 'sim_frontpage_panel',
-            'description' 	=> __( 'Choose which post types you would like to include in the gallery', 'sim' ),
+            'description' 	=> __( 'Show a gallery of the lastest posted content', 'sim' ),
         )
+    );
+
+    $wpCustomize->add_setting(
+        "hide_news_gallery"
+    );
+
+    $wpCustomize->add_control(
+        "hide_news_gallery",
+        [
+            'type'        	=> 'checkbox',
+            'label'         => 'Do not show the news gallery',
+            'section'       => 'sim_news_gallery',
+            'settings'      => "hide_news_gallery",
+            'priority'      => 11
+        ]
+    );
+
+    $wpCustomize->add_setting(
+        "priority[news]",
+        [
+            'default'   => 10
+        ]
+    );
+
+    $wpCustomize->add_control(
+        "priority[news]",
+        [
+            'type'        	=> 'number',
+            'label'         => __('The priority of this gallery', 'sim'),
+            'section'       => 'sim_news_gallery',
+            'settings'      => "priority[news]",
+            'priority'      => 12,
+            'description'   => __('A lower number means that it is shown higher on the page', 'sim'),
+            'active_callback' => function(){
+                return !get_theme_mod( "hide_news_gallery", false );
+            },
+        ]
     );
 
     $wpCustomize->add_setting(
@@ -204,7 +227,10 @@ function frontpageNewsGallery($wpCustomize){
                 '1 month' => '1 month',
                 '2 months'=> '2 months',
                 '3 months'=> '3 months',
-            ]
+            ],
+            'active_callback' => function(){
+                return !get_theme_mod( "hide_news_gallery", false );
+            },
         ]
     );
 
@@ -221,6 +247,9 @@ function frontpageNewsGallery($wpCustomize){
                 'section'       => 'sim_news_gallery',
                 'priority'      => 20,
                 'settings'      => "label",
+                'active_callback' => function(){
+                    return !get_theme_mod( "hide_news_gallery", false );
+                },
             )
         )
     );
@@ -247,6 +276,9 @@ function frontpageNewsGallery($wpCustomize){
                 'section'           => 'sim_news_gallery',
                 'settings'          => "news_posttypes[$type]",
                 'priority'          => 20,
+                'active_callback' => function(){
+                    return !get_theme_mod( "hide_news_gallery", false );
+                },
                 
             ]
         );
@@ -278,7 +310,7 @@ function frontpageNewsGallery($wpCustomize){
                         'settings'      => "label",
                         'description' 	=> __( "Select the categories you want to exclude from the gallery", 'sim' ),
                         'active_callback' => function()use($type){
-                            return get_theme_mod( "news_posttypes", [] )[$type];
+                            return get_theme_mod( "news_posttypes", [] )[$type] && !get_theme_mod( "hide_news_gallery", false );
                         },
                     )
                 )
@@ -298,7 +330,7 @@ function frontpageNewsGallery($wpCustomize){
                         'settings'          => "news_categories[$type][$taxonomy][$category->term_id]",
                         'priority'          => $basePriority+($index*10)+$taxIndex,
                         'active_callback' => function()use($type){
-                            return get_theme_mod( "news_posttypes", [] )[$type];
+                            return get_theme_mod( "news_posttypes", [] )[$type] && !get_theme_mod( "hide_news_gallery", false );
                         },
                     ]
                 );
@@ -330,6 +362,43 @@ function frontpagePageGallery($wpCustomize){
     );
 
     $wpCustomize->add_setting(
+        "hide_page_gallery"
+    );
+
+    $wpCustomize->add_control(
+        "hide_page_gallery",
+        [
+            'type'        	=> 'checkbox',
+            'label'         => __('Do not show the page gallery.', 'sim'),
+            'section'       => 'sim_page_gallery',
+            'settings'      => "hide_page_gallery",
+            'priority'      => 10
+        ]
+    );
+
+    $wpCustomize->add_setting(
+        "priority[page]",
+        [
+            'default'   => 20
+        ]
+    );
+
+    $wpCustomize->add_control(
+        "priority[page]",
+        [
+            'type'        	=> 'number',
+            'label'         => __('The priority of this gallery', 'sim'),
+            'section'       => 'sim_page_gallery',
+            'settings'      => "priority[page]",
+            'priority'      => 10,
+            'description'   => __('A lower number means higher on the page', 'sim'),
+            'active_callback' => function(){
+                return !get_theme_mod( "hide_page_gallery", false );
+            },
+        ]
+    );
+
+    $wpCustomize->add_setting(
         "page-gallery-title",
         [
             'default'           => __('See what we do', 'sim')
@@ -344,6 +413,9 @@ function frontpagePageGallery($wpCustomize){
             'section'       => 'sim_page_gallery',
             'settings'      => "page-gallery-title",
             'priority'      => 10,
+            'active_callback' => function(){
+                return !get_theme_mod( "hide_page_gallery", false );
+            },
         ]
     );
 
@@ -363,6 +435,9 @@ function frontpagePageGallery($wpCustomize){
             'section'       => 'sim_page_gallery',
             'settings'      => "page-gallery-count",
             'priority'      => 10,
+            'active_callback' => function(){
+                return !get_theme_mod( "hide_page_gallery", false );
+            },
         ]
     );
 
@@ -382,6 +457,9 @@ function frontpagePageGallery($wpCustomize){
             'section'       => 'sim_page_gallery',
             'settings'      => "speed",
             'priority'      => 10,
+            'active_callback' => function(){
+                return !get_theme_mod( "hide_page_gallery", false );
+            },
         ]
     );
 
@@ -394,6 +472,9 @@ function frontpagePageGallery($wpCustomize){
                 'section'       => 'sim_page_gallery',
                 'priority'      => 20,
                 'settings'      => "label",
+                'active_callback' => function(){
+                    return !get_theme_mod( "hide_page_gallery", false );
+                },
             )
         )
     );
@@ -418,6 +499,9 @@ function frontpagePageGallery($wpCustomize){
                 'section'           => 'sim_page_gallery',
                 'settings'          => "page_posttypes[$type]",
                 'priority'          => 20,
+                'active_callback' => function(){
+                    return !get_theme_mod( "hide_page_gallery", false );
+                },
             ]
         );
         
@@ -448,7 +532,7 @@ function frontpagePageGallery($wpCustomize){
                         'settings'      => "label",
                         'description' 	=> __( "Select the categories you want to exclude from the gallery", 'sim' ),
                         'active_callback' => function()use($type){
-                            return get_theme_mod( "page_posttypes", [] )[$type];
+                            return get_theme_mod( "page_posttypes", [] )[$type] && !get_theme_mod( "hide_page_gallery", false );
                         },
                     )
                 )
@@ -468,7 +552,7 @@ function frontpagePageGallery($wpCustomize){
                         'settings'          => "page_categories[$type][$taxonomy][$category->term_id]",
                         'priority'          => $basePriority+($index*10)+$taxIndex,
                         'active_callback' => function()use($type){
-                            return get_theme_mod( "page_posttypes", [] )[$type];
+                            return get_theme_mod( "page_posttypes", [] )[$type] && !get_theme_mod( "hide_page_gallery", false );
                         },
                     ]
                 );
