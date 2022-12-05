@@ -76,7 +76,7 @@ add_filter( 'pre_set_site_transient_update_themes', function($transient){
 
 	$gitVersion     = $release['tag_name'];
 
-	$item			= (object) array(
+	$item			= array(
 		'theme'         => $theme->stylesheet,
 		'new_version'   => $theme->version,
 		'url'           => 'https://api.github.com/repos/Tsjippy/SIM-Theme',
@@ -85,8 +85,8 @@ add_filter( 'pre_set_site_transient_update_themes', function($transient){
 
 	// Git has a newer version
 	if(version_compare($gitVersion, $theme->version) && !empty($release['assets'][0]['browser_download_url'])){
-		$item->new_version	= $gitVersion;
-		$item->package		= $release['assets'][0]['browser_download_url'];
+		$item['new_version']	= $gitVersion;
+		$item['package']		= $release['assets'][0]['browser_download_url'];
 
 		$transient->response[$theme->stylesheet]	= $item;
 	}else{
