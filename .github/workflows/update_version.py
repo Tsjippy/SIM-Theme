@@ -4,13 +4,16 @@ from pathlib import Path
 import datetime
 
 # load plugin file
-txt = Path('style.css').read_text()
+txt         = Path('style.css').read_text()
+
+print(txt)
 newVersion  = sys.argv[1]
 
 # get old version
 try:
     oldVersion = re.search(r'\* Version:[ \t]*([\d.]+)', txt).group(1)
 except Exception as e:
+    print(str(e))
     exit()
 
 # replace with new
