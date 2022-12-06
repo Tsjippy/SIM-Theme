@@ -3,11 +3,16 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
-- customizer option for top menu position
 
 ### Changed
 
 ### Fixed
+
+## [1.0.4] - 2022-12-06
+
+
+### Added
+- customizer option for top menu position
 
 ## [1.0.3.1] - 2022-12-06
 
