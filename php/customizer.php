@@ -24,7 +24,7 @@ if (class_exists('WP_Customize_Control')) {
 
 // Add home page customizer options
 if ( ! function_exists( 'simCustomizeRegister' ) ) {
-	add_action( 'customize_register', __NAMESPACE__.'\simCustomizeRegister', 20 );
+	add_action( 'customize_register', __NAMESPACE__.'\simCustomizeRegister', 30 );
 
 	/**
 	 * Add our base options to the Customizer.
@@ -41,6 +41,8 @@ if ( ! function_exists( 'simCustomizeRegister' ) ) {
 			)
 		);
 
+        topNavigation($wpCustomize);
+
         frontpageHeader($wpCustomize);
 
         frontpageNewsGallery($wpCustomize);
@@ -49,6 +51,43 @@ if ( ! function_exists( 'simCustomizeRegister' ) ) {
             frontpagePageGallery($wpCustomize);
         }
     }
+}
+
+/**
+ * Top navigation settings
+ */
+function topNavigation($wpCustomize){
+    $wpCustomize->add_section(
+        'sim_layout_top_navigation',
+        array(
+            'title' => __( 'Top Navigation', 'generatepress' ),
+            'priority' => 29,
+            'panel' => 'generate_layout_panel',
+        )
+    );
+
+    $wpCustomize->add_setting(
+        'top_nav_alignment_setting',
+        array(
+            'default' => 'right'
+        )
+    );
+
+    $wpCustomize->add_control(
+        'top_nav_alignment_setting',
+        array(
+            'type' => 'select',
+            'label' => __( 'Top Navigation Alignment', 'sim' ),
+            'section' => 'sim_layout_top_navigation',
+            'choices' => array(
+                'left' => __( 'Left', 'generatepress' ),
+                'center' => __( 'Center', 'generatepress' ),
+                'right' => __( 'Right', 'generatepress' ),
+            ),
+            'settings' => 'top_nav_alignment_setting',
+            'priority' => 20,
+        )
+    );
 }
 
 /**

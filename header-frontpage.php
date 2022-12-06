@@ -58,18 +58,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$text2		= get_the_title($page2);
 	}
 
-	$url1		= get_the_permalink($page1);
-	$url2		= get_the_permalink($page2);
-
 	$headerImageUrl	= get_theme_mod( 'header_image' ) ;
 
 	?>
 	<div id='main-image'>
 		<img src='<?php echo $headerImageUrl;?>' alt=''>
-		<div id="header-buttons">
-			<a id='first_button' href='<?php echo $url1;?>' title='<?php echo $text1;?>' class='btn btn-primary header_button' id='header_button1'><?php echo $text1;?></a>
-			<a id='second_button' href='<?php echo $url2;?>' title='<?php echo $text2;?>' class='btn btn-right header_button' id='header_button1'><?php echo $text2;?></a>
-		</div>
+		<?php
+		if($page1 > 0  || $page2 > 0){
+			$url1		= get_the_permalink($page1);
+			$url2		= get_the_permalink($page2);
+			?>
+			<div id="header-buttons">
+				<?php
+				if($page1 > 0){
+					?>
+					<a id='first_button' href='<?php echo $url1;?>' title='<?php echo $text1;?>' class='btn btn-primary header_button' id='header_button1'><?php echo $text1;?></a>
+					<?php
+				}
+				if($page2 > 0){
+					?>
+					<a id='second_button' href='<?php echo $url2;?>' title='<?php echo $text2;?>' class='btn btn-right header_button' id='header_button1'><?php echo $text2;?></a>
+					<?php
+				}
+				?>
+			</div>
+			<?php
+		}
+		?>
 	</div>
 	<?php
 

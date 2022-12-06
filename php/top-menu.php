@@ -12,7 +12,25 @@ add_action('generate_before_header', function(){
         // show logo
         generate_construct_logo();
 
+        $float  = get_theme_mod('top_nav_alignment_setting');
+
+        switch($float){
+            case 'center':
+                $style  = 'margin-left: auto;margin-right: auto;';
+                break;
+            case 'left':
+                $style  = 'width: 100%;';
+                break;
+            default:
+                $style  = 'margin-left: auto;';
+        }
+
         ?>
+        <style>
+            #top-menu{
+                <?php echo $style;?>
+            }
+        </style>
         <div id='top-menu-wrapper'>
             <?php
             // print top menu
