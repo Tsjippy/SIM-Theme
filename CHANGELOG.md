@@ -3,6 +3,7 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+- customizer option for top menu position
 
 ### Changed
 
