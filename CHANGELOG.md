@@ -7,6 +7,7 @@
 - prioritize frontpage galleries
 
 ### Changed
+- display of menu items
 
 ### Fixed
 - updating
