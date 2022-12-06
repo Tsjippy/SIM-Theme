@@ -120,7 +120,25 @@ function frontpageHeader($wpCustomize){
         )
     );
 
-     $wpCustomize->add_setting(
+    $wpCustomize->add_setting(
+        "header_image_height",
+        [
+            'default'   => 600
+        ]
+    );
+
+    $wpCustomize->add_control(
+        "header_image_height",
+        [
+            'type'        	=> 'number',
+            'label'         => __('The height of the images in pixels', 'sim'),
+            'section'       => 'sim_header',
+            'settings'      => "header_image_height",
+            'priority'      => 6
+        ]
+    );
+
+    $wpCustomize->add_setting(
         'first_button_page'
     );
 

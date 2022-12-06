@@ -58,11 +58,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$text2		= get_the_title($page2);
 	}
 
-	$headerImageUrl	= get_theme_mod( 'header_image' ) ;
+	$headerImageUrl		= get_theme_mod( 'header_image' ) ;
+	$headerImageHeight	= get_theme_mod( 'header_image_height', 600) ;
 
 	?>
-	<div id='main-image'>
-		<img src='<?php echo $headerImageUrl;?>' alt=''>
+	<div id='main-image' style='height:<?php echo $headerImageHeight;?>px;'>
+		<div class='image' style='background-image: url(<?php echo $headerImageUrl;?>);'>
+		</div>
 		<?php
 		if($page1 > 0  || $page2 > 0){
 			$url1		= get_the_permalink($page1);
