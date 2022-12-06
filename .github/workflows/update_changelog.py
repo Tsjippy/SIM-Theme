@@ -18,6 +18,8 @@ text    = lines[1].replace("\n", " ")
 # load plugin file
 changelog = Path(file).read_text()
 
+print(changelog)
+
 total   = re.search(r'## \[Unreleased\] - yyyy-mm-dd([\s\S]*?)## \[', changelog).group(1)
 if(type == 'added'):
     added       = re.search(r'(### Added[\s\S]*?)###', total).group(1).rstrip("\n")
