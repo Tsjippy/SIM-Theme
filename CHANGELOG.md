@@ -3,11 +3,16 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
-- customizer header image height
 
 ### Changed
 
 ### Fixed
+
+## [1.0.5] - 2022-12-06
+
+
+### Added
+- customizer header image height
 
 ## [1.0.4] - 2022-12-06
 
