@@ -6,6 +6,7 @@
 
 ### Changed
 - other background image
+- header image cropping
 
 ### Fixed
 
