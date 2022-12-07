@@ -104,23 +104,6 @@ function frontpageHeader($wpCustomize){
     );
 
     $wpCustomize->add_setting(
-        'header_image',
-    );
-
-    $wpCustomize->add_control(
-        new \WP_Customize_Image_Control (
-            $wpCustomize,
-            'header_image',
-            array(
-                'label'             => __( 'Frontpage Header Image', 'sim' ),
-                'section'           => 'sim_header',
-                'settings'          => 'header_image',
-                'priority'          => 5,
-            )
-        )
-    );
-
-    $wpCustomize->add_setting(
         "header_image_height",
         [
             'default'   => 600
@@ -137,6 +120,43 @@ function frontpageHeader($wpCustomize){
             'priority'      => 6
         ]
     );
+
+    $wpCustomize->add_setting(
+        'header_image',
+    );
+
+    $headerImageOptions = [
+        'label'             => __( 'Frontpage Header Image', 'sim' ),
+        'section'           => 'sim_header',
+        'settings'          => 'header_image',
+        'priority'          => 5,
+    ];
+
+    if(extension_loaded('gd')){
+        $headerImageOptions['width']        = 1024;
+        $headerImageOptions['flex_width']   = true;
+        $headerImageOptions['flex_height']  = true;
+        $height                             = get_theme_mod("header_image_height", false);
+        if($height){
+            $headerImageOptions['height']   = $height;
+        }
+        
+        $wpCustomize->add_control(
+            new \WP_Customize_Cropped_Image_Control(
+                $wpCustomize,
+                'header_image',
+                $headerImageOptions
+            )
+        );
+    }else{
+        $wpCustomize->add_control(
+            new \WP_Customize_Image_Control (
+                $wpCustomize,
+                'header_image',
+                $headerImageOptions
+            )
+        );
+    }
 
     $wpCustomize->add_setting(
         'first_button_page'

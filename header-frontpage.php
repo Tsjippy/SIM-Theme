@@ -59,6 +59,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 
 	$headerImageUrl		= get_theme_mod( 'header_image' ) ;
+	if(is_numeric($headerImageUrl)){
+		$headerImageUrl	= wp_get_attachment_url($headerImageUrl);
+	}
 	$headerImageHeight	= get_theme_mod( 'header_image_height', 600) ;
 
 	?>
