@@ -9,6 +9,7 @@
 - header image cropping
 
 ### Fixed
+- button coloring white on white background resulting in invisible
 
 ## [1.0.5] - 2022-12-06
 
