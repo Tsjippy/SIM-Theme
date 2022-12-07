@@ -3,6 +3,7 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+- option to hide page and news gallery when empty
 
 ### Changed
 - other background image
