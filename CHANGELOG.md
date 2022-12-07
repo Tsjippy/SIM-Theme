@@ -24,7 +24,7 @@
 ### Added
 - customizer option for top menu position
 
-## [1.0.3.1] - 2022-12-06
+## [1.0.3] - 2022-12-06
 
 
 ### Added
