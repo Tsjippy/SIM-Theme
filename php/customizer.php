@@ -264,6 +264,21 @@ function frontpageNewsGallery($wpCustomize){
     );
 
     $wpCustomize->add_setting(
+        "hide_news_gallery_if_empty"
+    );
+
+    $wpCustomize->add_control(
+        "hide_news_gallery_if_empty",
+        [
+            'type'        	=> 'checkbox',
+            'label'         => 'Do not show the news gallery if there is no news',
+            'section'       => 'sim_news_gallery',
+            'settings'      => "hide_news_gallery_if_empty",
+            'priority'      => 12
+        ]
+    );
+
+    $wpCustomize->add_setting(
         "priority[news]",
         [
             'default'   => 10
@@ -450,6 +465,21 @@ function frontpagePageGallery($wpCustomize){
             'section'       => 'sim_page_gallery',
             'settings'      => "hide_page_gallery",
             'priority'      => 10
+        ]
+    );
+
+    $wpCustomize->add_setting(
+        "hide_page_gallery_if_empty"
+    );
+
+    $wpCustomize->add_control(
+        "hide_page_gallery_if_empty",
+        [
+            'type'        	=> 'checkbox',
+            'label'         => 'Do not show the page gallery if there are not pages to show',
+            'section'       => 'sim_page_gallery',
+            'settings'      => "hide_page_gallery_if_empty",
+            'priority'      => 12
         ]
     );
 

@@ -95,16 +95,18 @@ function showNewsGallery(){
     
     //Get all the posts using the previously defined arguments
     $loop = new \WP_Query( $args );
-    ?>
-    <article id="news">
-        <div id="rowwrap">
-            <h2 id="news-title">Latest news</h2>
-            <div class="row">
-            <?php
 
     if ( ! $loop->have_posts() ) {
-                    //Show message if there is no news
-                    ?>
+        if(get_theme_mod('hide_news_gallery_if_empty', false)){
+            return;
+        }
+        
+        //Show message if there is no news
+        ?>
+        <article id="news">
+            <div id="rowwrap">
+                <h2 id="news-title">Latest news</h2>
+                <div class="row">
                     <article class="news-article">
                         <div class="card card-plain card-blog">
                             <div class="content">
@@ -132,34 +134,43 @@ function showNewsGallery(){
     );
     
     $i = 1;
-    while ( $loop->have_posts() ){
-        $loop->the_post();
-        
-        ?>
-        <article class="news-article">
-            <div class="card card-plain card-blog">
-                    <?php if ( has_post_thumbnail() ) :
-                        echo '<div class="card-image">';
-                            echo '<a href="'.get_permalink().'" style="background-image: url('.get_the_post_thumbnail_url().');"></a>';
-                        echo '</div>';
-                    endif; ?>
-                    <div class="content">
-                        <h4 class="card-title entry-title">
-                            <a class="blog-item-title-link" href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark">
-                                <?php echo wp_kses( force_balance_tags( get_the_title() ), $allowedHtml ); ?>
-                            </a>
-                        </h4>
-                        <p class="card-description"><?php echo force_balance_tags(wp_kses_post( get_the_excerpt())); ?></p>
-                    </div>
-                </div>
-            </article>
-            <?php
-            $i++;
-        }
-        echo '</div>';
-        echo '<div id="newslinkdiv"><p><a name="newslink" id="newslink" href="'.SITEURL.'/news/">Read all news items →</a></p></div></div>';
-        echo '</article>';
+    ?>
+    <article id="news">
+        <div id="rowwrap">
+            <h2 id="news-title">Latest news</h2>
+            <div class="row">
+                <?php
+                while ( $loop->have_posts() ){
+                    $loop->the_post();
+                    
+                    ?>
+                    <article class="news-article">
+                        <div class="card card-plain card-blog">
+                            <?php
+                            if ( has_post_thumbnail() ){
+                                echo '<div class="card-image">';
+                                    echo '<a href="'.get_permalink().'" style="background-image: url('.get_the_post_thumbnail_url().');"></a>';
+                                echo '</div>';
+                            }
+                            ?>
+                            <div class="content">
+                                <h4 class="card-title entry-title">
+                                    <a class="blog-item-title-link" href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark">
+                                        <?php echo wp_kses( force_balance_tags( get_the_title() ), $allowedHtml ); ?>
+                                    </a>
+                                </h4>
+                                <p class="card-description"><?php echo force_balance_tags(wp_kses_post( get_the_excerpt())); ?></p>
+                            </div>
+                        </div>
+                    </article>
+                    <?php
+                    $i++;
+                }
+                ?>
+            </div>
+        <div id="newslinkdiv"><p><a name="newslink" id="newslink" href="'.SITEURL.'/news/">Read all news items →</a></p></div></div>
+    </article>
+    <?php
 
-        wp_reset_postdata();
-    
+    wp_reset_postdata();
 }

@@ -76,11 +76,12 @@ foreach($priorities as $what=>$priority){
 			}
 		}
 
-		$title				= get_theme_mod('page-gallery-title', 'See what we do');
-		$amount				= get_theme_mod('page-gallery-count', 3);
+		$title		= get_theme_mod('page-gallery-title', 'See what we do');
+		$amount		= get_theme_mod('page-gallery-count', 3);
 		$speed		= get_theme_mod('speed', 60);
+		$showIfEmpty= get_theme_mod('hide_page_gallery_if_empty', false);
 
-		echo SIM\PAGEGALLERY\pageGallery($title, $postTypes, $amount, $includedCategories, $speed);
+		echo SIM\PAGEGALLERY\pageGallery($title, $postTypes, $amount, $includedCategories, $speed, $showIfEmpty);
 	}
 }
 
