@@ -8,6 +8,7 @@
 ### Changed
 - other background image
 - header image cropping
+- not centered news items
 
 ### Fixed
 - button coloring white on white background resulting in invisible
