@@ -4,7 +4,7 @@ namespace SIMTHEME;
 add_action( 'wp_enqueue_scripts', function(){
 	$baseUrl	= get_bloginfo('stylesheet_directory');
 	
-    wp_enqueue_style( 'sim_theme_style', "$baseUrl/css/main.min.css", array(), 10);
+    wp_enqueue_style( 'sim_theme_style', "$baseUrl/css/main.min.css", array(), wp_get_theme()->get('Version'));
 });
 
 /**

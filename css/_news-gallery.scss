@@ -28,6 +28,7 @@ article .inside-article .wp-block-columns{
 /* the heading of the news area*/
 #news-title{
     padding-top:30px;
+    text-align: center;
 }
 
 /* news items*/
@@ -36,6 +37,7 @@ article .inside-article .wp-block-columns{
     display: -webkit-inline-box;
     scrollbar-color: $primary_color transparent;
     max-width: 100vw;
+    padding-left: 10px;
 
     /* scrollbar height */
     &::-webkit-scrollbar {
@@ -88,6 +90,7 @@ article .inside-article .wp-block-columns{
 
 #newslinkdiv{
     margin: 20px;
+    text-align: center;
 }
 
 /* center text of news item title*/
