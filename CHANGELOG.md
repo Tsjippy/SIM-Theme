@@ -5,9 +5,14 @@
 ### Added
 
 ### Changed
-- layout of new gallery
 
 ### Fixed
+
+## [1.0.7] - 2022-12-14
+
+
+### Changed
+- layout of new gallery
 
 ## [1.06] - 2022-12-13
 
