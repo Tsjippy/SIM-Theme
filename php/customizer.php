@@ -274,7 +274,22 @@ function frontpageNewsGallery($wpCustomize){
             'label'         => 'Do not show the news gallery if there is no news',
             'section'       => 'sim_news_gallery',
             'settings'      => "hide_news_gallery_if_empty",
-            'priority'      => 12
+            'priority'      => 11
+        ]
+    );
+
+    $wpCustomize->add_setting(
+        "hide_news_gallery_if_not_logged_in"
+    );
+
+    $wpCustomize->add_control(
+        "hide_news_gallery_if_not_logged_in",
+        [
+            'type'        	=> 'checkbox',
+            'label'         => 'Do not show the news gallery if the user is not logged in',
+            'section'       => 'sim_news_gallery',
+            'settings'      => "hide_news_gallery_if_not_logged_in",
+            'priority'      => 11
         ]
     );
 
@@ -479,7 +494,22 @@ function frontpagePageGallery($wpCustomize){
             'label'         => 'Do not show the page gallery if there are not pages to show',
             'section'       => 'sim_page_gallery',
             'settings'      => "hide_page_gallery_if_empty",
-            'priority'      => 12
+            'priority'      => 11
+        ]
+    );
+
+    $wpCustomize->add_setting(
+        "hide_page_gallery_if_not_logged_in"
+    );
+
+    $wpCustomize->add_control(
+        "hide_page_gallery_if_not_logged_in",
+        [
+            'type'        	=> 'checkbox',
+            'label'         => 'Do not show the page gallery if the user is not logged in',
+            'section'       => 'sim_page_gallery',
+            'settings'      => "hide_page_gallery_if_not_logged_in",
+            'priority'      => 11
         ]
     );
 
@@ -497,7 +527,7 @@ function frontpagePageGallery($wpCustomize){
             'label'         => __('The priority of this gallery', 'sim'),
             'section'       => 'sim_page_gallery',
             'settings'      => "priority[page]",
-            'priority'      => 10,
+            'priority'      => 15,
             'description'   => __('A lower number means higher on the page', 'sim'),
             'active_callback' => function(){
                 return !get_theme_mod( "hide_page_gallery", false );
@@ -519,7 +549,7 @@ function frontpagePageGallery($wpCustomize){
             'label'         => __('Title for the gallery', 'sim'),
             'section'       => 'sim_page_gallery',
             'settings'      => "page-gallery-title",
-            'priority'      => 10,
+            'priority'      => 15,
             'active_callback' => function(){
                 return !get_theme_mod( "hide_page_gallery", false );
             },
@@ -541,7 +571,7 @@ function frontpagePageGallery($wpCustomize){
             'label'         => __('Amount of pages to show', 'sim'),
             'section'       => 'sim_page_gallery',
             'settings'      => "page-gallery-count",
-            'priority'      => 10,
+            'priority'      => 15,
             'active_callback' => function(){
                 return !get_theme_mod( "hide_page_gallery", false );
             },
@@ -563,7 +593,7 @@ function frontpagePageGallery($wpCustomize){
             'label'         => __('Refreshrate of the pages in seconds', 'sim'),
             'section'       => 'sim_page_gallery',
             'settings'      => "speed",
-            'priority'      => 10,
+            'priority'      => 15,
             'active_callback' => function(){
                 return !get_theme_mod( "hide_page_gallery", false );
             },

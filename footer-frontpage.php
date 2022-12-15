@@ -30,12 +30,32 @@ if(!isset($priorities['page'])){
 asort($priorities);
 
 foreach($priorities as $what=>$priority){
-
-	if($what == 'news' && !get_theme_mod('hide_news_gallery', false)){
+	if($what == 'news'){
+		// Do not show if we should hide it
+		if(
+			get_theme_mod('hide_news_gallery', false)	||
+			(
+				!is_user_logged_in()		&&
+				get_theme_mod('hide_news_gallery_if_not_logged_in', false)
+			)
+		){
+			continue;
+		}
 		showNewsGallery();
 	}
 
-	if($what == 'page' && !get_theme_mod('hide_page_gallery', false) && function_exists('SIM\getModuleOption') && SIM\getModuleOption('pagegallery', 'enable')){
+	if($what == 'page' && function_exists('SIM\getModuleOption') && SIM\getModuleOption('pagegallery', 'enable')){
+		// Do not show if we should hide it
+		if(
+			get_theme_mod('hide_page_gallery', false)	||
+			(
+				!is_user_logged_in()		&&
+				get_theme_mod('hide_page_gallery_if_not_logged_in', false)
+			)
+		){
+			continue;
+		}
+
 		$postTypes			= get_theme_mod('page_posttypes', []);
 		$postTypes			= array_keys(array_filter(
 			$postTypes,

@@ -97,6 +97,7 @@ function showNewsGallery(){
     $loop = new \WP_Query( $args );
 
     if ( ! $loop->have_posts() ) {
+        
         if(get_theme_mod('hide_news_gallery_if_empty', false)){
             return;
         }
