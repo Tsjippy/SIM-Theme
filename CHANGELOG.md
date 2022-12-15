@@ -7,6 +7,7 @@
 ### Changed
 
 ### Fixed
+- news gallery layout
 
 ## [1.0.7] - 2022-12-14
 
