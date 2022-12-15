@@ -3,9 +3,16 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
-- hide gallery if not logged in
 
 ### Changed
+
+### Fixed
+
+## [1.0.8] - 2022-12-15
+
+
+### Added
+- hide gallery if not logged in
 
 ### Fixed
 - news gallery layout
