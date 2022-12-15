@@ -3,6 +3,7 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+- hide gallery if not logged in
 
 ### Changed
 
