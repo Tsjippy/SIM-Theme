@@ -2,36 +2,31 @@
 @use 'main-image';
 @use 'news-gallery';
 
-/* make whole frontpage white*/
+/*prayerlooks*/
+#prayer-request h3 {
+	color: #444444;
+	font-weight: 500;
+}
 
+.logged-in{
+	/*Hide the login button, team section and ribbon section */
+	.big-title-slider-content .buttons a.btn:nth-child(1), 
+	#team, 
+	#ribbon, 
+	.big-title-slider-content .buttons a:nth-child(1){
+		display: none;
+	}
 
-	
-
-	/*prayerlooks*/
-	#prayertitle {
-		color: #444444;
-		font-weight: 500;
+	/*Center the content of the event list on the homepage*/
+	div.wp-block-column:nth-child(2){
+		text-align: center;
 	}
 	
-	.logged-in{
-		/*Hide the login button, team section and ribbon section */
-		.big-title-slider-content .buttons a.btn:nth-child(1), 
-		#team, 
-		#ribbon, 
-		.big-title-slider-content .buttons a:nth-child(1){
-			display: none;
-		}
-
-		/*Center the content of the event list on the homepage*/
-		div.wp-block-column:nth-child(2){
-			text-align: center;
-		}
-		
-		#agendabutton{
-			margin: auto;
-			margin-top: auto;
-			display: table;
-			margin-top: 5px;
-			padding: 5px 30px;
-		}
+	#agendabutton{
+		margin: auto;
+		margin-top: auto;
+		display: table;
+		margin-top: 5px;
+		padding: 5px 30px;
 	}
+}
