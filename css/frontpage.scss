@@ -30,3 +30,11 @@
 		padding: 5px 30px;
 	}
 }
+
+#primary .inside-article, .widget-area .widget, #main .wp-block-group__inner-container{
+	padding-top: 0px; 
+}
+
+.is-layout-flex.wp-container-3.wp-block-columns{
+	display: none;
+}
