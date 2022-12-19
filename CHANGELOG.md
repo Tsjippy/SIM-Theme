@@ -5,6 +5,7 @@
 ### Added
 
 ### Changed
+- search bar location in top bar
 
 ### Fixed
 
