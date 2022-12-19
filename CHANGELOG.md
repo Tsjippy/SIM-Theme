@@ -3,12 +3,19 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [1.0.12] - 2022-12-19
+
+
+### Added
 - autofocus on search
 
 ### Changed
 - search bar location in top bar
-
-### Fixed
 
 ## [1.0.11] - 2022-12-19
 
