@@ -69,7 +69,7 @@ add_action('generate_before_header', function(){
                 <script>
                     document.addEventListener('DOMContentLoaded', ev => {
                         // Remove the primary search when there is a top menu
-                        if(document.getElementById('top-menu-wrapper') != null){
+                        if(document.getElementById('top-navigation') != null && document.getElementById('top-navigation').offsetParent !== null){
                             document.querySelector('.inside-navigation .navigation-search').remove();
                         }
 

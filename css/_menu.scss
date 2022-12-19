@@ -73,7 +73,7 @@ ul .menu-item-has-children ul.sub-menu {
 
     .navigation-search.nav-search-active{
         top: 70px;
-        z-index: inherit;
+        z-index: 10001;
         padding: 0 50px;
     }
 }
