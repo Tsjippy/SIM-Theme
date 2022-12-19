@@ -7,6 +7,11 @@
 ### Changed
 
 ### Fixed
+
+## [1.0.13] - 2022-12-19
+
+
+### Fixed
 - search on mobile
 
 ## [1.0.12] - 2022-12-19
