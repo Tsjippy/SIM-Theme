@@ -3,6 +3,7 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+- support for ajax search lite plugin
 
 ### Changed
 
