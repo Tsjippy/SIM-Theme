@@ -70,6 +70,12 @@ ul .menu-item-has-children ul.sub-menu {
 	.search-form.navigation-search.nav-search-active{
 		right: 100px;
 	}
+
+    .navigation-search.nav-search-active{
+        top: 70px;
+        z-index: inherit;
+        padding: 0 50px;
+    }
 }
 
 @media (max-width: 768px) {

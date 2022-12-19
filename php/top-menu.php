@@ -61,7 +61,12 @@ add_action('generate_before_header', function(){
             );
 
             // add menu items
-            generate_do_menu_bar_item_container();
+            if ( 'enable' === generate_get_option( 'nav_search' ) ) {
+                generate_do_menu_bar_item_container();
+
+                generate_navigation_search();
+                remove_action( 'generate_inside_navigation', 'generate_navigation_search' );
+            }
             ?>
         </div>
         <?php
