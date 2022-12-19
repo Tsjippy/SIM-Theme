@@ -3,11 +3,16 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
-- support for ajax search lite plugin
 
 ### Changed
 
 ### Fixed
+
+## [1.0.11] - 2022-12-19
+
+
+### Added
+- support for ajax search lite plugin
 
 ## [1.0.10] - 2022-12-16
 
