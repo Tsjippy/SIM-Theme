@@ -65,7 +65,23 @@ add_action('generate_before_header', function(){
                 generate_do_menu_bar_item_container();
 
                 generate_navigation_search();
-                remove_action( 'generate_inside_navigation', 'generate_navigation_search' );
+                ?>
+                <script>
+                    document.addEventListener('DOMContentLoaded', ev => {
+                        // Remove the primary search when there is a top menu
+                        if(document.getElementById('top-menu-wrapper') != null){
+                            document.querySelector('.inside-navigation .navigation-search').remove();
+                        }
+
+                        // auto focus
+                        document.querySelectorAll('.icon-search').forEach(
+                            el=>el.addEventListener('click', ev=>{
+                                setTimeout(function(){ document.querySelector('#ajaxsearchlite1 input.orig').focus(); }, 100);
+                            })
+                        );
+                    });
+                </script>
+                <?php
             }
             ?>
         </div>
