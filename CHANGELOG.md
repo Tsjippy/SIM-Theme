@@ -3,6 +3,7 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+- autofocus on search
 
 ### Changed
 - search bar location in top bar
