@@ -85,6 +85,7 @@ ul .menu-item-has-children ul.sub-menu {
     }
 }
 
-#site-navigation #ajaxsearchlite1 .probox .proinput input, div.asl_w .probox .proinput:focus{
+
+.has-inline-mobile-toggle #site-navigation.has-active-search .navigation-search input[name="phrase"]{
     outline: none;
 }
