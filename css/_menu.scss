@@ -61,14 +61,24 @@ ul .menu-item-has-children ul.sub-menu {
     font: 10px Arial, sans-serif;
 }
 
+.has-inline-mobile-toggle .inside-header{
+    padding:0px;
+}
+
 /* background of submenus*/
 @media (min-width: 768px){
 	.search-form.navigation-search.nav-search-active{
 		right: 100px;
-		border: 2px solid black;
 	}
 }
 
-.has-inline-mobile-toggle .inside-header{
-    padding:0px;
+@media (max-width: 768px) {
+    .navigation-search.nav-search-active {
+        position: relative;
+        order: 20;
+    }
+}
+
+#site-navigation #ajaxsearchlite1 .probox .proinput input, div.asl_w .probox .proinput:focus{
+    outline: none;
 }
