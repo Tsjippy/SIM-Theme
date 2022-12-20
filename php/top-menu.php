@@ -76,7 +76,12 @@ add_action('generate_before_header', function(){
                         // auto focus
                         document.querySelectorAll('.icon-search').forEach(
                             el=>el.addEventListener('click', ev=>{
-                                setTimeout(function(){ document.querySelector('#ajaxsearchlite1 input.orig').focus(); }, 100);
+                                setTimeout(
+                                    function(){
+                                        document.querySelectorAll('.nav-search-active input.orig').forEach(search=>search.focus());
+                                    },
+                                    100
+                                );
                             })
                         );
                     });
