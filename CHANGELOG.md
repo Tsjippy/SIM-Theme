@@ -7,6 +7,7 @@
 ### Changed
 
 ### Fixed
+- search layout on mobile
 
 ## [1.0.13] - 2022-12-19
 
