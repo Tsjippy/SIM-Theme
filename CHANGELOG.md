@@ -6,6 +6,7 @@
 - auto focus when searching
 
 ### Changed
+- removed logged_home_page shortcode
 
 ### Fixed
 - search layout on mobile
