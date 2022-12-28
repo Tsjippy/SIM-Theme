@@ -15,8 +15,8 @@ function displayName() {
 //Shortcode to return the amount of loggins in words
 add_shortcode("login_count", __NAMESPACE__.'\loginCount');
 function loginCount(){
-	$UserId			= get_current_user_id();
-	$currentLogginCount = get_user_meta( $UserId, 'login_count', true );
+	$userId			= get_current_user_id();
+	$currentLogginCount = get_user_meta( $userId, 'login_count', true );
 	//Get the word from the array
 	if (is_numeric($currentLogginCount)){
 		return \SIM\numberToWords($currentLogginCount);
@@ -25,11 +25,3 @@ function loginCount(){
 		return "your first";
 	}
 }
-
-/**
- * Wrapper function for the home page for logged in users
- * Modules add their contetn via the  sim_loggedin_homepage filter
- */
-add_shortcode('logged_home_page', function(){
-	return apply_filters('sim_loggedin_homepage', '');
-});
