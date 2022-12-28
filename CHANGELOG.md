@@ -3,6 +3,15 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [1.0.14] - 2022-12-28
+
+
+### Added
 - auto focus when searching
 
 ### Changed
