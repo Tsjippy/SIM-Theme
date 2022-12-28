@@ -13,7 +13,7 @@ use Github\Exception\ApiLimitExceedException;
  */
 add_filter( 'themes_api', function ( $res, $action, $args ) {
 	// do nothing if you're not getting plugin information or this is not our plugin
-	if( 'plugin_information' !== $action || PLUGINNAME !== $args->slug) {
+	if( 'plugin_information' !== $action || 'sim-theme' !== $args->slug) {
 		return $res;
 	}
 
@@ -25,8 +25,8 @@ add_filter( 'themes_api', function ( $res, $action, $args ) {
 
 	$res 					= new \stdClass();
 
-	$res->name 				= 'SIM Plugin';
-	$res->slug 				= PLUGINNAME;
+	$res->name 				= 'SIM Theme';
+	$res->slug 				= 'sim-theme';
 	$res->version 			= $release['tag_name'];
 	$res->author 			= $release['author']['login'];
 	$res->tested			= '6.1.0';
@@ -38,7 +38,7 @@ add_filter( 'themes_api', function ( $res, $action, $args ) {
 	$description    = get_transient('sim-git-description');
 	// if not in transient
 	if(!$description){
-		$description    = base64_decode($client->api('repo')->contents()->readme('Tsjippy', PLUGINNAME)['content']);
+		$description    = base64_decode($client->api('repo')->contents()->readme('Tsjippy', 'sim-theme')['content']);
 		// Store for 24 hours
 		set_transient( 'sim-git-description', $description, DAY_IN_SECONDS );
 	}
@@ -46,7 +46,7 @@ add_filter( 'themes_api', function ( $res, $action, $args ) {
 	$changelog    = get_transient('sim-git-changelog');
 	// if not in transient
 	if(!$changelog){
-		$changelog	= base64_decode($client->api('repo')->contents()->show('Tsjippy', PLUGINNAME, 'CHANGELOG.md')['content']);
+		$changelog	= base64_decode($client->api('repo')->contents()->show('Tsjippy', 'sim-theme', 'CHANGELOG.md')['content']);
 		
 		//convert to html
 		$parser 	= new \Michelf\MarkdownExtra;
@@ -101,7 +101,7 @@ add_filter( 'pre_set_site_transient_update_themes', function($transient){
  *
  * @return	array	Array containing information about the latest release
  */
-function getLatestRelease($author='tsjippy', $package='SIM-Theme'){
+function getLatestRelease($author='tsjippy', $package='SIM-Theme', $force=false){
 	if(isset($_GET['update'])){
 		$release	= false;
 	}else{
@@ -128,3 +128,20 @@ function getLatestRelease($author='tsjippy', $package='SIM-Theme'){
 	}
 	return $release;
 }
+
+
+add_action('admin_menu', function(){
+	add_submenu_page('themes.php', 'Update', 'Update', 'edit_theme_options', 'update', function($test){
+		$release	= getLatestRelease('tsjippy', 'SIM-Theme', true);
+		$theme		= wp_get_theme('sim-theme');
+
+		if(version_compare($release['tag_name'], $theme->version)){
+			$url  		= wp_nonce_url( admin_url( 'update.php?action=upgrade-theme&amp;theme=' . urlencode( 'sim-theme' ) ), 'upgrade-theme_sim-theme' );
+
+			$link   = "<a href='$url' class='update-link'>Update to {$release['tag_name']}</a>";
+			echo "Checking for update<br>Current version $theme->version<br>Remote version {$release['tag_name']}<br>$link";
+		}else{
+			echo "Checking for update<br>No update available";
+		}
+	});
+});
