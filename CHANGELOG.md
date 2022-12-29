@@ -3,11 +3,16 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
-- force update check
 
 ### Changed
 
 ### Fixed
+
+## [2.0.0] - 2022-12-29
+
+
+### Added
+- force update check
 
 ## [1.0.14] - 2022-12-28
 
