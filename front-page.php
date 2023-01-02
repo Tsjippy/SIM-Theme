@@ -18,8 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'wp_enqueue_scripts', function(){
 	$baseUrl	= get_bloginfo('stylesheet_directory');
-	wp_register_script('sim_home_script', "$baseUrl/js/home.min.js", array('sweetalert'), 9, true);
-	wp_enqueue_style( 'sim_frontpage_style', "$baseUrl/css/frontpage.min.css", array(), 9);
+	wp_register_script('sim_home_script', "$baseUrl/js/home.min.js", array('sweetalert'), wp_get_theme()->get('Version'), true);
+	wp_enqueue_style( 'sim_frontpage_style', "$baseUrl/css/frontpage.min.css", array(), wp_get_theme()->get('Version'));
 	
 	//home.js
 	wp_enqueue_script('sim_home_script');
