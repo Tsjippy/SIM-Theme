@@ -7,6 +7,7 @@
 ### Changed
 
 ### Fixed
+- frontpage style version
 
 ## [2.0.0] - 2022-12-29
 
