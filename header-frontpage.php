@@ -6,6 +6,7 @@ namespace SIMTHEME;
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
+	echo 'Are you trying to hack me?';
 	exit; // Exit if accessed directly.
 }
 
