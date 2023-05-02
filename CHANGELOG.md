@@ -8,6 +8,7 @@
 
 ### Fixed
 - read more tag layout
+- nes gallery layout
 
 ## [2.0.1] - 2023-01-02
 
