@@ -147,20 +147,20 @@ function showNewsGallery(){
                     ?>
                     <article class="news-article">
                         <div class="card card-plain card-blog">
-                            <?php
-                            if ( has_post_thumbnail() ){
-                                echo '<div class="card-image">';
+                            <div class="card-image">
+                                <?php
+                                if ( has_post_thumbnail() ){
                                     echo '<a href="'.get_permalink().'" style="background-image: url('.get_the_post_thumbnail_url().');"></a>';
-                                echo '</div>';
-                            }
-                            ?>
+                                }
+                                ?>
+                            </div>
                             <div class="content">
                                 <h4 class="card-title entry-title">
                                     <a class="blog-item-title-link" href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark">
                                         <?php echo wp_kses( force_balance_tags( get_the_title() ), $allowedHtml ); ?>
                                     </a>
                                 </h4>
-                                <p class="card-description"><?php echo force_balance_tags(wp_kses_post( get_the_excerpt())); ?></p>
+                                <div class="card-description"><?php echo force_balance_tags(wp_kses_post( get_the_excerpt())); ?></div>
                             </div>
                         </div>
                     </article>
