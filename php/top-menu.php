@@ -70,7 +70,7 @@ add_action('generate_before_header', function(){
                     document.addEventListener('DOMContentLoaded', ev => {
                         // Remove the primary search when there is a top menu
                         if(document.getElementById('top-navigation') != null && document.getElementById('top-navigation').offsetParent !== null){
-                            document.querySelector('.inside-navigation .navigation-search').remove();
+                            document.querySelectorAll('.inside-navigation .navigation-search').forEach(el=>el.remove());
                         }
 
                         // auto focus
