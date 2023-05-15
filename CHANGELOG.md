@@ -7,6 +7,11 @@
 ### Changed
 
 ### Fixed
+
+## [2.0.3] - 2023-05-15
+
+
+### Fixed
 - read more tag layout
 - nes gallery layout
 - some bugs
