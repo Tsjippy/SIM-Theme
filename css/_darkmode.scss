@@ -15,10 +15,11 @@
     .sidebar .widget, 
     .inside-article, 
     #news .row .news-article,
-    .page-gallery-article
+    .page-gallery-article,
+    .inside-header.grid-container,
+    #mobile-menu-control-wrapper .menu-toggle
     {
         background-color: black !important;
-        background: black !important;
         color: white !important;
     }
 }
