@@ -1,0 +1,24 @@
+@media (prefers-color-scheme: dark) {
+    img {
+        opacity: .75;
+        transition: opacity .5s ease-in-out;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    body, 
+    nav, 
+    header, 
+    a, 
+    .sidebar .widget, 
+    .inside-article, 
+    #news .row .news-article,
+    .page-gallery-article
+    {
+        background-color: black !important;
+        background: black !important;
+        color: white !important;
+    }
+}
