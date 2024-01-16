@@ -1,0 +1,49 @@
+@use 'global' as *;
+
+@media (prefers-color-scheme: dark) {
+    img {
+        opacity: .75;
+        transition: opacity .5s ease-in-out;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    body, 
+    nav, 
+    header, 
+    a, 
+    .sidebar .widget, 
+    .inside-article, 
+    #news .row .news-article,
+    .page-gallery-article,
+    .inside-header.grid-container,
+    #mobile-menu-control-wrapper .menu-toggle,
+    .nice-select-dropdown
+    {
+        background-color: black !important;
+        color: white !important;
+    }
+
+    .nice-select{
+        .current{
+            color: $secundary_color;
+        }
+
+        .option:hover, 
+        .option.focus, 
+        .option.selected.focus {
+            text-decoration: underline;
+            text-decoration-color: currentcolor;
+            text-decoration-color: currentcolor;
+            -webkit-text-decoration-color: $primary_color;
+            text-decoration-color: $primary_color;
+            background-color: unset;
+        }
+        .nice-select-dropdown{
+            border: $secundary_color solid 2px;
+        }
+    }
+    
+}

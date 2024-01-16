@@ -47,6 +47,10 @@ function showNewsGallery(){
             'key'		=> 'user_id',
             'compare'	=> 'NOT EXISTS'
         ),
+        array(
+            'key'		=> 'skipgallery',
+            'compare'	=> 'NOT EXISTS'
+        )
     );
     
     //If not logged in..
@@ -106,7 +110,7 @@ function showNewsGallery(){
         ?>
         <article id="news">
             <div id="rowwrap">
-                <h2 id="news-title">Latest news</h2>
+                <h2 id="news-title">Latest News</h2>
                 <div class="row">
                     <article class="news-article">
                         <div class="card card-plain card-blog">
@@ -138,7 +142,7 @@ function showNewsGallery(){
     ?>
     <article id="news">
         <div id="rowwrap">
-            <h2 id="news-title">Latest news</h2>
+            <h2 id="news-title">Latest News</h2>
             <div class="row">
                 <?php
                 while ( $loop->have_posts() ){
