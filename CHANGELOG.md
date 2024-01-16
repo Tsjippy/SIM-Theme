@@ -7,6 +7,10 @@
 ### Changed
 
 ### Fixed
+- header pictures in darkmode
+
+## [2.0.4] - 2024-01-15
+
 
 ## [2.0.3] - 2023-05-15
 
