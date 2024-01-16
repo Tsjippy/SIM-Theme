@@ -7,6 +7,11 @@
 ### Changed
 
 ### Fixed
+
+## [2.0.6] - 2024-01-16
+
+
+### Fixed
 - header pictures in darkmode
 - dropdown in darkmode
 
