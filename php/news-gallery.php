@@ -5,6 +5,10 @@ namespace SIMTHEME;
  * Shows the news Gallery
  */
 function showNewsGallery(){
+    if(!get_theme_mod('news_posttypes')){
+        return;
+    }
+    
     $postTypes              = array_keys(get_theme_mod('news_posttypes'));
     $maxNewsAge             = get_theme_mod('max_news_age');
     $args                   = array('ignore_sticky_posts' => true,);
