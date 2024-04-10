@@ -8,6 +8,7 @@
 ### Changed
 
 ### Fixed
+- bug with empty theme option
 
 ## [2.0.6] - 2024-01-16
 
