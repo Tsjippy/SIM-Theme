@@ -2,8 +2,8 @@
 @use 'top-menu';
 @use 'primary-menu';
 
-.main-navigation .menu-bar-item>a.button{
-    color: white;
+li.menu-item > a.button{
+    color: white !important;
 }
 
 /* Hide the logo in the primary menu */

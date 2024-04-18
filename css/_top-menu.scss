@@ -37,6 +37,10 @@
                 font-weight: 600;
                 padding-left: 10px;
                 padding-right: 10px;
+
+                &.button{
+                    line-height: 20px;
+                }
             }
         }
     }
@@ -46,12 +50,8 @@
         padding: 10px;
         float: right;
 
-        .menu-bar-item{
+        .menu-bar-item, .menu-item{
             padding: 10px;
-
-            a.button{
-                line-height: 20px;
-            }
         }
     }
 }
