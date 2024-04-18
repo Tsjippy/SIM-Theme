@@ -6,6 +6,7 @@
 - darkmode classes
 
 ### Changed
+- menu css
 
 ### Fixed
 - bug with empty theme option
