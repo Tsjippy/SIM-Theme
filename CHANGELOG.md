@@ -7,6 +7,7 @@
 
 ### Changed
 - menu css
+- footer always at bottom of the screen
 
 ### Fixed
 - bug with empty theme option
