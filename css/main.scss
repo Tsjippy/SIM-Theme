@@ -4,11 +4,14 @@
 @use 'darkmode';
 
 /* footer at the bottom of the screen */
-footer{
-	position: absolute;
-    top: 100vh;
-    transform: translateY(-100%);
-    width: 100%;
+body{
+	height: 100vh;
+	display: flex;
+    flex-direction: column;
+}
+
+.container.grid-container{
+	flex-grow: 1;
 }
 
 /* moretag layout */
