@@ -1,4 +1,5 @@
 console.log("Home.js loaded");
+
 document.addEventListener("DOMContentLoaded",function() {
 	// Show message 
  	if(location['search'].includes('?message=')){
