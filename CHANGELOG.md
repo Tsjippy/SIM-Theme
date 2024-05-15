@@ -3,6 +3,15 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [2.0.7] - 2024-05-15
+
+
+### Added
 - darkmode classes
 
 ### Changed
