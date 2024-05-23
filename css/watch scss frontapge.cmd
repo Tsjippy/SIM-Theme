@@ -1,1 +1,0 @@
-sass --watch --style=compressed ".\frontpage.scss" "frontpage.min.css"

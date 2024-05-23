@@ -113,7 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		do_action( 'generate_inside_site_container' );
 		
-		do_action( 'sim_frontpage_before_main_content' );
+		//do_action( 'sim_frontpage_before_main_content' );
 		?>
 		<div <?php generate_do_attr( 'site-content' ); ?>>
 			<?php
