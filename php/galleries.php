@@ -102,9 +102,20 @@ function showGalleries(){
     <script>
         let gal=document.querySelector("#gallery-wrapper");
 
-        gal.style.marginLeft    = '-'+gal.getBoundingClientRect()['left']+'px';
+        gal.style.marginLeft    = '-'+gal.getBoundingClientRect().left+'px';
 
         gal.style.width         = `calc(100vw - ${window.innerWidth - document.documentElement.clientWidth}px)`;
+
+        let sidebar             = document.querySelector(`.is-right-sidebar .inside-right-sidebar`);
+        
+        let minY                = sidebar.getBoundingClientRect().bottom;
+
+        let curY                = gal.getBoundingClientRect().top
+
+        // adjust if needed
+        if(curY < minY){
+            gal.style.marginTop = minY - curY + 20 + 'px'; // plus 20 px bottom margin
+        }
     </script>
 
     <?php
