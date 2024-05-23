@@ -7,6 +7,7 @@
 ### Changed
 
 ### Fixed
+- js running too soon
 
 ## [2.0.8] - 2024-05-23
 
