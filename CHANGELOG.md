@@ -7,6 +7,15 @@
 ### Changed
 
 ### Fixed
+
+## [2.0.8] - 2024-05-23
+
+
+### Added
+
+### Changed
+
+### Fixed
 - frontpage layout
 
 ## [2.0.7] - 2024-05-15
