@@ -8,6 +8,7 @@
 
 ### Fixed
 - js running too soon
+- mobile home page layout
 
 ## [2.0.8] - 2024-05-23
 
