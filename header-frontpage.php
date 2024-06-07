@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$headerImageHeight	= get_theme_mod( 'header_image_height', 600) ;
 
 	?>
-	<div id='main-image' style='height:<?php echo $headerImageHeight;?>px;'>
+	<div id='main-image' style='height:<?php echo $headerImageHeight;?>px;min-height:<?php echo $headerImageHeight;?>px;'>
 		<div class='image' style='background-image: url(<?php echo $headerImageUrl;?>);'>
 		</div>
 		<?php
