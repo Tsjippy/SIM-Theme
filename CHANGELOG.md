@@ -7,6 +7,7 @@
 ### Changed
 
 ### Fixed
+- homepage layout bug
 
 ## [2.0.9] - 2024-05-29
 
