@@ -1,7 +1,8 @@
 <?php
 namespace SIMTHEME;
 
-define('THEME', 'sim-theme');
+define(__NAMESPACE__ .'\THEME', 'sim-theme');
+define(__NAMESPACE__ .'\THEME_PATH', str_replace('\\', '/', __DIR__));
 
 // composer
 require 'lib/vendor/autoload.php';

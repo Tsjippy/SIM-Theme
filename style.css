@@ -1,13 +1,16 @@
 /*
- Theme Name:   SIM theme
- Theme URI:    https://simnigeria.org
- Description:  SIM Theme
- Author:       Ewald Harmsen
- Author URI:   http://harmseninnigeria.nl
- Template:     generatepress
- Version:      2.0.9
- License:      GNU General Public License v2 or later
- License URI:  http://www.gnu.org/licenses/gpl-2.0.html
- Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
- Text Domain:  SIM
+ Theme Name:        SIM theme
+ Theme URI:         https://simnigeria.org
+ Description:       SIM Theme
+ Author:            Ewald Harmsen
+ Author URI:        http://harmseninnigeria.nl
+ Template:          generatepress
+ Version:           2.0.9
+ License:           GNU General Public License v2 or later
+ License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:              light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:       SIM
+ Requires at least:	6.0
+ Requires PHP: 		8.0
+ Requires Plugins:  	sim-plugin
 */
