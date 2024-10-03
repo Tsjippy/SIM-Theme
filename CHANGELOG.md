@@ -5,6 +5,7 @@
 ### Added
 
 ### Changed
+- update behavior
 
 ### Fixed
 - homepage layout bug
