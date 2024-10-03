@@ -5,6 +5,15 @@
 ### Added
 
 ### Changed
+
+### Fixed
+
+## [2.1.0] - 2024-10-03
+
+
+### Added
+
+### Changed
 - update behavior
 
 ### Fixed
