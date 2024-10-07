@@ -33,6 +33,9 @@ add_filter( 'themes_api', function ( $res, $action, $args ) {
 }, 10, 3);
 
 add_filter( 'pre_set_site_transient_update_themes', function($transient){
+	if(!class_exists('SIM\GITHUB\Github')){
+		return $transient;
+	}
 	$github			= new SIM\GITHUB\Github();
 
 	$item			= $github->getVersionInfo(THEME_PATH, 'Tsjippy', 'sim-theme');
