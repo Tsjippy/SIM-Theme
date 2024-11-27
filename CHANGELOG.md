@@ -3,6 +3,15 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [2.1.1] - 2024-11-27
+
+
+### Added
 - dependecy check
 
 ### Changed
