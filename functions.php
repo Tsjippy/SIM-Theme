@@ -9,8 +9,14 @@ define(__NAMESPACE__ .'\THEME_PATH', str_replace('\\', '/', __DIR__));
 //check if plugin is already installed
 $activePlugins	= get_option( 'active_plugins' );
 
+// We cannot use the sim theme
 if(!in_array('sim-plugin/sim-plugin.php', $activePlugins)){
-    throw new Exception("To use the sim-theme you need to install the sim-plugin");
+    $themes = wp_get_themes();
+    unset($themes['SIM theme']);
+
+    switch_theme(array_values($themes)[0]['theme_root']);
+    error_log("To use the sim-theme you need to install the sim-plugin");
+    //throw new Exception("To use the sim-theme you need to install the sim-plugin");
 }
 
 // composer
