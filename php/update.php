@@ -42,9 +42,9 @@ add_filter( 'pre_set_site_transient_update_themes', function($transient){
 
 	// Git has a newer version
 	if(isset($item->new_version)){
-		$transient->response[SIM\PLUGIN]	= $item;
+		$transient->response[SIM\PLUGIN]	= (array)$item;
 	}else{
-		$transient->no_update[SIM\PLUGIN]	= $item;
+		$transient->no_update[SIM\PLUGIN]	= (array)$item;
 	}
 
 	return $transient;
