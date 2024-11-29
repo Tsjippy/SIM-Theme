@@ -7,6 +7,7 @@
 ### Changed
 
 ### Fixed
+- update theme check
 
 ## [2.1.2] - 2024-11-29
 
