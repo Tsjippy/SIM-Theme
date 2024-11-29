@@ -8,6 +8,16 @@
 
 ### Fixed
 
+## [2.1.2] - 2024-11-29
+
+
+### Added
+
+### Changed
+
+### Fixed
+- sidebar on top of news gallery
+
 ## [2.1.1] - 2024-11-27
 
 
