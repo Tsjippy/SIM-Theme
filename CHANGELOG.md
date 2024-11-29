@@ -7,6 +7,7 @@
 ### Changed
 
 ### Fixed
+- sidebar on top of news gallery
 
 ## [2.1.1] - 2024-11-27
 
