@@ -3,11 +3,21 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [2.1.1] - 2024-11-27
+
+
+### Added
 - dependecy check
 
 ### Changed
 
 ### Fixed
+- simplugin not available error
 
 ## [2.1.0] - 2024-10-03
 
