@@ -7,7 +7,17 @@
 ### Changed
 
 ### Fixed
+
+## [2.1.3] - 2024-11-29
+
+
+### Added
+
+### Changed
+
+### Fixed
 - update theme check
+- updating
 
 ## [2.1.2] - 2024-11-29
 
