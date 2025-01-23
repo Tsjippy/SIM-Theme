@@ -96,3 +96,31 @@ add_action('generate_before_header', function(){
         remove_action( 'generate_after_primary_menu', 'generate_do_menu_bar_item_container' );
     echo "</nav>";
 });
+
+
+// Add darkmode logo
+add_filter('generate_logo_output', __NAMESPACE__.'\addDarkThemeLogo', 10, 3);
+function addDarkThemeLogo($html, $logoUrl, $htmlAttr){
+    $ext            = pathinfo($logoUrl, PATHINFO_EXTENSION);
+    $darkModeUrl    = str_replace(".$ext", "_DM.$ext", $logoUrl);
+
+    if(!file_exists(SIM\urlToPath($darkModeUrl))){
+        return $html;
+    }
+
+    $html   = sprintf(
+        '<div class="site-logo">
+            <a href="%1$s" rel="home">
+                <picture>
+                    <source srcset="%2$s" media="(prefers-color-scheme: dark)">
+                    <img %3$s />
+                </picture>
+            </a>
+        </div>',
+        esc_url( apply_filters( 'generate_logo_href', home_url( '/' ) ) ),
+        $darkModeUrl,
+        $htmlAttr
+    );    
+
+    return $html;
+}
