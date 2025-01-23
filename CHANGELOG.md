@@ -3,6 +3,7 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+- dark mode custom logo (ad _DM to end of filename)
 
 ### Changed
 
