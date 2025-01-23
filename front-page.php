@@ -69,6 +69,8 @@ get_header('frontpage'); ?>
 	 */
 	do_action( 'generate_after_primary_content_area' );
 
+	do_action('loop_end');
+
 	generate_construct_sidebars();
 
 	get_footer('frontpage');
