@@ -4,6 +4,7 @@
 
 ### Added
 - dark mode custom logo (ad _DM to end of filename)
+- loop_end action on frontpage
 
 ### Changed
 
