@@ -9,6 +9,7 @@
 ### Changed
 
 ### Fixed
+- layout issues
 
 ## [2.1.3] - 2024-11-29
 
