@@ -3,12 +3,22 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [2.1.4] - 2025-04-28
+
+
+### Added
 - dark mode custom logo (ad _DM to end of filename)
 - loop_end action on frontpage
 
 ### Changed
 
 ### Fixed
+- layout issues
 
 ## [2.1.3] - 2024-11-29
 
