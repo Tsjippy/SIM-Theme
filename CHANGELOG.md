@@ -3,6 +3,7 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+- 'sim-theme-archive-page-title' filter
 
 ### Changed
 
