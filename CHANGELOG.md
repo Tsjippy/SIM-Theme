@@ -5,6 +5,7 @@
 ### Added
 
 ### Changed
+- checkboxes in darkmode
 
 ### Fixed
 
