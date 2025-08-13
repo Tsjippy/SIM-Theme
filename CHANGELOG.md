@@ -5,6 +5,15 @@
 ### Added
 
 ### Changed
+
+### Fixed
+
+## [2.1.6] - 2025-08-13
+
+
+### Added
+
+### Changed
 - checkboxes in darkmode
 
 ### Fixed
