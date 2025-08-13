@@ -3,11 +3,55 @@
 @use 'pagetitle';
 @use 'darkmode';
 
+/*Buttons */
+%buttons{
+	background-color: $primary_color;
+	border-radius: 3px;
+	text-align: center;
+	/*margin-right: 10px;*/
+}
+
 /* footer at the bottom of the screen */
-body{
+body {
 	height: 100vh;
 	display: flex;
     flex-direction: column;
+
+	div {
+		.button, 
+		.button:not(.small):focus{
+			@extend %buttons;
+			padding: 5px 10px;
+			
+			&:hover, &.active{
+				background-color: $secundary_color;
+			}
+			
+			&.tablink{
+				margin-top: 15px;
+				background-color: $secundary_color;
+				
+				&:hover,&.active{
+					background-color: $primary_color;
+					color: white;
+					border-color: unset;
+				}
+			}
+		}
+
+		h4{
+			font-weight: bold;
+			color: $primary_color;
+			margin: 15px 5px 5px;
+			font-size: inherit;
+		}
+	}
+
+	@media (max-width: $mobilewidth){
+		div.inside-article{
+			padding: 10px !important;
+		}
+	}
 }
 
 .container.grid-container{
@@ -41,35 +85,6 @@ p{
 	color: #676666;
 }
 
-/*Buttons */
-%buttons{
-	background-color: $primary_color;
-	border-radius: 3px;
-	text-align: center;
-	/*margin-right: 10px;*/
-}
-
-body div .button, 
-body div .button:not(.small):focus{
-	@extend %buttons;
-	padding: 5px 10px;
-	
-	&:hover, &.active{
-		background-color: $secundary_color;
-	}
-	
-	&.tablink{
-		margin-top: 15px;
-		background-color: $secundary_color;
-		
-		&:hover,&.active{
-			background-color: $primary_color;
-			color: white;
-			border-color: unset;
-		}
-	}
-}
-
 .wp-core-ui div .button{
 	@extend %buttons;
 	color: white;
@@ -91,16 +106,15 @@ body div .button:not(.small):focus{
 .button.small{
 	padding: 0px 10px;
 }
+
 a.button.small{
 	padding-top: 5px;
-}
-div h4{
-	font-weight: bold;
-	color: $primary_color;
-	margin: 15px 5px 5px;
-	font-size: inherit;
 }
 
 .hidden{
 	display: none;
+}
+
+input[type="checkbox"] {
+	accent-color: $secundary_color;
 }

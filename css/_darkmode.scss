@@ -48,4 +48,50 @@
         }
     }
     
+    /* Style the unchecked checkbox by replacing it */
+    input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid gray;
+            border-top-width: 2px;
+            border-top-style: solid;
+            border-top-color: gray;
+            border-right-width: 2px;
+            border-right-style: solid;
+            border-right-color: gray;
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+            border-bottom-color: gray;
+            border-left-width: 2px;
+            border-left-style: solid;
+            border-left-color: gray;
+            border-image-outset: 0;
+            border-image-repeat: stretch;
+            border-image-slice: 100%;
+            border-image-source: none;
+            border-image-width: 1;
+        background-color: lightgray;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    /* Style the checked state (e.g., change background and add a checkmark) */
+    input[type="checkbox"]:checked {
+        background-color: darkgrey; /* Checked background color */
+        border-color: $secundary_color; /* Checked border color */
+    }
+
+    /* Add a checkmark for the checked state using a pseudo-element */
+    input[type="checkbox"]:checked::before {
+        content: "\2713"; /* Unicode checkmark character */
+        color: $primary_color; /* Checkmark color */
+        font-size: 16px;
+        line-height: 1;
+        text-align: center;
+        display: block;
+    }
 }
