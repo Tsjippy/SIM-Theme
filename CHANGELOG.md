@@ -3,6 +3,7 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+- disabled buttons grey background
 
 ### Changed
 
