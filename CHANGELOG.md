@@ -3,6 +3,15 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [2.1.7] - 2025-10-30
+
+
+### Added
 - disabled buttons grey background
 
 ### Changed
