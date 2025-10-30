@@ -5,7 +5,7 @@
 
 /*Buttons */
 %buttons{
-	background-color: $primary_color;
+	background-color: $primaryColor;
 	border-radius: 3px;
 	text-align: center;
 	/*margin-right: 10px;*/
@@ -24,24 +24,28 @@ body {
 			padding: 5px 10px;
 			
 			&:hover, &.active{
-				background-color: $secundary_color;
+				background-color: $secundaryColor;
 			}
 			
 			&.tablink{
 				margin-top: 15px;
-				background-color: $secundary_color;
+				background-color: $secundaryColor;
 				
-				&:hover,&.active{
-					background-color: $primary_color;
+				&:hover, &.active{
+					background-color: $primaryColor;
 					color: white;
 					border-color: unset;
 				}
+			}
+
+			:disabled{
+				background: darkgrey;
 			}
 		}
 
 		h4{
 			font-weight: bold;
-			color: $primary_color;
+			color: $primaryColor;
 			margin: 15px 5px 5px;
 			font-size: inherit;
 		}
@@ -70,12 +74,12 @@ body {
 	/*max-width: 133px;*/
 	margin: 20px auto 0 auto;
 	white-space: nowrap;
-	background-color: $primary_color;
+	background-color: $primaryColor;
 	width: fit-content;
 	
 	/* on hover of the more tag*/
 	&:hover{
-		background-color:$secundary_color;
+		background-color:$secundaryColor;
 		color:white;
 	}
 }
@@ -91,7 +95,7 @@ p{
 	border-color: unset;
 	
 	&:hover, &:active{
-		background-color: $secundary_color;
+		background-color: $secundaryColor;
 		color: white;
 		border-color: unset;
 	}
@@ -116,5 +120,5 @@ a.button.small{
 }
 
 input[type="checkbox"] {
-	accent-color: $secundary_color;
+	accent-color: $secundaryColor;
 }

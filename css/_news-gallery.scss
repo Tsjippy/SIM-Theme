@@ -23,7 +23,7 @@ article .inside-article .wp-block-columns{
     .row{
         padding-top:30px;
         display: -webkit-inline-box;
-        scrollbar-color: $primary_color transparent;
+        scrollbar-color: $primaryColor transparent;
         max-width: 100vw;
         padding-left: 10px;
 
@@ -38,7 +38,7 @@ article .inside-article .wp-block-columns{
         
         /* scrollbar  Handle */
         &::-webkit-scrollbar-thumb {
-            background: $primary_color; 
+            background: $primaryColor; 
             border-radius: 10px;
             border: solid 3px transparent;
         }
@@ -117,7 +117,7 @@ article .inside-article .wp-block-columns{
         #newslink{
             text-align: center; 
             font-size: 18px;
-            color:$primary_color;
+            color:$primaryColor;
         }
     }
 }
